@@ -1,0 +1,13 @@
+{%extends 'home.html'%}
+
+{%block content%}
+    <div class="container p-3 my-3 bg-dark text-white">
+        <h2>DELETE DETAILS</h2><br>
+        <p>Are you sure want to delete {{data.movieName}} from your website?</p>
+        <form method="post">
+            {%csrf_token%}
+            <input type="submit" value="Yes" class="btn btn-success">
+            <a href="/profile/view" class="btn btn-danger">No</a>
+        </form>
+    </div>
+{%endblock%}

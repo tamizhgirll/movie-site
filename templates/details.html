@@ -1,0 +1,23 @@
+{%extends 'home.html'%}
+
+{%block content%}
+    <div class="container my-3">
+        <div class="jumbotron bg-dark text-white">
+            <div class="row">
+                <div class="col-lg-3">
+                    <img src="{{details.image}}" class="img-fluid">
+                </div>
+                <div class="col-lg-9">
+                    <h2 class="text-center">{{details.movieName}}</h2>
+                    <p class="text-right">{{details.director}}</p>
+                    <p>{{details.description}}</p>
+                    <p>RATINGS:
+                        {%for x in details.ratings|get_range%}
+                        <span class="fa fa-star text-warning"></span>
+                        {%endfor%}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

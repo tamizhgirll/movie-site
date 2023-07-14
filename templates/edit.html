@@ -1,0 +1,15 @@
+{%extends 'home.html'%}
+
+{%block content%}
+    <div class="container p-3 my-3 bg-dark text-white">
+        <h2>EDIT DETAILS</h2><br>
+        <form method="post">
+            {%csrf_token%}
+            {%for a in form%}
+            {{a.name | upper}}<br>
+            {{a}}<br><br>
+            {%endfor%}
+            <input type="submit" value="Update" class="btn btn-primary">
+        </form>
+    </div>
+{%endblock%}

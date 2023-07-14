@@ -1,0 +1,29 @@
+{%extends 'home.html'%}
+
+{%block content%}
+  <div class="container p-3 my-3 bg-dark text-white">
+      <h2>List of Movies</h2><br>
+      <table border="">
+          <tr>
+            <th>IMAGE</th>
+            <th>MOVIE NAME</th>
+            <th>DIRECTOR</th>
+            <th>DESCRIPTION</th>
+            <th>RATINGS</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+          </tr>
+          {%for a in mov%}
+          <tr>
+            <td><img src="{{a.image}}" width="50"></td>
+            <td>{{a.movieName}}</td>
+            <td>{{a.director}}</td>
+            <td>{{a.description}}</td>
+            <td>{{a.ratings}}</td>
+            <td><a href="edit/{{a.id}}/">Edit</a></td>
+            <td><a href="delete/{{a.id}}/">Delete</a></td>
+          </tr>
+          {%endfor%}
+      </table>
+  </div>
+{%endblock%}

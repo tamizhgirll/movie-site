@@ -1,0 +1,14 @@
+{%extends 'home.html'%}
+{%block content%}
+    <div class="container p-3 my-3 bg-dark text-white">
+        <h2>ADD NEW REVIEW HERE!</h2><br>
+        <form method="post">
+            {%csrf_token%}
+            {%for a in form%}
+                <label>{{a.name | upper}}</label><br>
+                {{a}}<br><br>
+            {%endfor%}
+            <input type="submit" value="ADD" class="btn btn-success">
+        </form>
+    </div>
+{%endblock%}

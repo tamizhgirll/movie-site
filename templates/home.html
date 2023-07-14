@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Buff</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="https://yt3.googleusercontent.com/SZgPf8ToCqNDQPW5DbB8hTKh1jiKl8Qbr5mD2kRSIZ1LmHRVKOh5Y0I_45TLbek0APM1tXGZIgc=s900-c-k-c0x00ffffff-no-rj">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        .card img{
+            max-height:300px;
+            min-height:300px;
+        }
+        td,th{
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-expand-xl bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/" class="nav-link">MOVIE BUFF</a></li>
+            <li class="nav-item"><a href="" class="nav-link">FANTASY</a></li>
+            <li class="nav-item"><a href="" class="nav-link">CRIME</a></li>
+            <li class="nav-item"><a href="" class="nav-link">THRILLER</a></li>
+            <li class="nav-item"><a href="" class="nav-link">ROMANCE</a></li>
+            <li class="nav-item"><a href="" class="nav-link">OTHERS</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="" class="nav-link">CONTACT</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link">LOGIN</a></li>
+        </ul>
+    </div>
+
+    {%block content%}
+        <div class="container">
+            <h2 class="text-center text-danger my-3">LIST OF MOVIES</h2>
+            <div class="row my-3">
+                {% for a in movies %}
+
+                <div class="col-lg-3 my-3 card">
+                    <a href="/details/{{a.id}}">
+                        <div class="card-header">
+                            {{a.movieName}} By {{a.director}}
+                        </div>
+                        <div class="card-body">
+                            <img src="{{a.image}}" class="mx-auto d-block img-fluid" alt="Sorry! Image not found">
+                        </div>
+                        <div class="card-footer">
+                            {% for i in a.ratings|get_range %}
+                                <span class="fa fa-star text-success"></span>
+                            {% endfor %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    {%endblock%}
+</body>
+</html>
